@@ -3,11 +3,14 @@
 }
 
 .App-header {
-  background-color: #222;
   padding: 20px;
-  color: white;
+  color: #222;
 }
 
+h2 {
+  font-family: 'courier';
+  font-weight: lighter;
+}
 
 ul{
   list-style: none;

@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to Corgi Corner</h2>
+          <h2>Show me the corgis!!!</h2>
         </div>
         <GifListContainer />
       </div>

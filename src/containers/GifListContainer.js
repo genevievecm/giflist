@@ -4,19 +4,17 @@ import GifList from '../components/GifList';
 
 export default class GifListContainer extends Component {
 
-  constructor(props){
-    super(props);
+  constructor(){
+    super();
     this.state = { gifs: [] }    
   }
 
   componentDidMount(){
-     $.ajax({
-      url: "http://api.giphy.com/v1/gifs/search?q=corgi+puppy&limit=5&api_key=dc6zaTOxFJmzC",
-      dataType: 'json',
-      success: function(gifs) {
-        this.setState({gifs: gifs.data});
-        console.log(gifs.data);
-      }.bind(this)
+     $.get('http://api.giphy.com/v1/gifs/search?q=funny+corgi&limit=5&api_key=dc6zaTOxFJmzC')
+      .then(response => {
+        this.setState({
+          gifs: response.data,
+        });
     });
   }
 
