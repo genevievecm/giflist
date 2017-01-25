@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+//dumb component is basically just a function, it has no state
 export default class GifList extends Component {
   
   render() { 
