@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-//dumb component is basically just a function, it has no state
-export default class GifList extends Component {
-  
-  render() { 
-    return (
-      <ul>
-        {this.props.gifs.map( g => 
-          <li key={g.id}>
-          <img src={g.images.original.url} alt='' />
-          </li>
-        )}
-      </ul>
-    );
-  }
+// dumb component is just a function, it has no state
+const GifList = (props) => {
+  return (
+    <ul>
+      {
+        props.gifs.map(gif => 
+        <li key={ gif.id }>
+          <img src={ gif.images.original.url } alt='' />
+        </li>)
+      }
+    </ul>
+  );
 }
+
+export default GifList;
