@@ -5,7 +5,7 @@ import GifList from '../components/GifList';
 
 export default class GifListContainer extends Component {
 
-  API_URL = 'http://api.giphy.com/v1/gifs/';
+  API_URL = 'https://api.giphy.com/v1/gifs/';
   API_KEY = 'api_key=dc6zaTOxFJmzC';
 
   // pass props to constructor and super when you want to set an initial state
