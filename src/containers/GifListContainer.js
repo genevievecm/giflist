@@ -14,37 +14,42 @@ export default class GifListContainer extends Component {
     this.state = { 
       gifs: [],
       form: { search: '' },
+      current: 'trending',
     } 
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);   
   }
 
   componentDidMount(){
     this.getGifs();
+
   }
 
-  getGifs(param){
-    let p = param ? 
-      'search?q='+param+'&limit=10&' : 
-      'trending?';
+  getGifs = (param) => {
+    const p = param ? 'search?q='+param+'&limit=10&' : 'trending?';
     $.get(this.API_URL+p+this.API_KEY)
       .then(response => {
         this.setState({ gifs: response.data })
       .catch(error => {
-        console.log(error);
+        return error;
       });
     });
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({
       form: { search: e.target.value }
     });
   };
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.getGifs(this.state.form.search);
+    this.setState({
+      form: { search: '' },
+      current: this.state.form.search !== '' ? this.state.form.search : 'trending'
+    })
   };
 
   render() {
@@ -55,6 +60,7 @@ export default class GifListContainer extends Component {
             change={ this.handleChange }
             input={ this.state.form.search } 
           />
+          <h2>#{this.state.current}</h2>
           <GifList gifs={ this.state.gifs } />
         </div>
     );
