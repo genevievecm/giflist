@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import GifListContainer from './containers/GifListContainer';
 import './index.css';
 
 ReactDOM.render(
-  <App />,
+  <GifListContainer />,
   document.getElementById('root')
 );
